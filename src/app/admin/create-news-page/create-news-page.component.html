@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="container-fluid">
+        <div class="form-control mb-4 mt-2">
+            <label for="title" style="font-size: x-large" class="mb-3">Заголовок</label>
+            <input type="text" id="title" class="input-group" formControlName="title">
+            <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+                <small *ngIf="form.get('title').errors.required">Обязательное поле</small>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label style="font-size: x-large" class="mb-3">Описание</label>
+            <quill-editor formControlName="text"></quill-editor>
+            <div *ngIf="form.get('text').touched && form.get('text').invalid" class="validation">
+                <small *ngIf="form.get('title').errors.required">Обязательное поле</small>
+            </div>
+        </div>
+
+        <div class="mt-4 container-fluid justify-content-end d-flex ">
+            <button class="btn btn-success" type="submit" [disabled]="form.invalid" >Добавить</button>
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,25 @@
+<app-alert></app-alert>
+
+<div class="container-fluid" id="wrapper">
+
+    <div class="row mt-2">
+
+        <div class="  border-right col-md-2" id="sidebar-wrapper" *ngIf=" auth.isAuthenticated() ">
+            <div class="sidebar-heading mb-4" style="font-size: x-large">Меню админа</div>
+            <div class="list-group" >
+                <a [routerLink]="['/admin','dashboard']" routerLinkActive="active"
+                   class="list-group-item list-group-item-action ">Главная</a>
+                <a [routerLink]="['/admin','createCards']" routerLinkActive="active"
+                   class="list-group-item list-group-item-action ">Создать карточку</a>
+                <a [routerLink]="['/admin','createNews']" routerLinkActive="active"
+                   class="list-group-item list-group-item-action ">Добавить новость</a>
+                <a (click)="logout($event)" class="list-group-item list-group-item-action ">Выйти</a>
+            </div>
+        </div>
+
+        <div class=" col-md-10 mt-1">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

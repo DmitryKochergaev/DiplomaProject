@@ -1,0 +1,34 @@
+.botM {
+    margin-bottom: 100px;
+}
+
+.cardBtnCenter {
+    place-content: center;
+    display: flex;
+}
+
+#back {
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+
+}
+
+#textOp {
+  text-decoration: none;
+  text-transform: none;
+  font-size: medium;
+}
+
+#container-small {
+
+
+  align-self: end;
+  justify-self: end;
+  justify-items: end;
+  justify-content: end;
+}
+
+#card-right {
+
+}

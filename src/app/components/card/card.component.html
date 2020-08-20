@@ -1,0 +1,8 @@
+<div class=" line mt-2 ml-2 mr-2 ">
+  <a class=" badge" [routerLink]="['/card', card.id]">
+    <div class="card-body badge">
+      <h5 class="card-title">{{card.title | titleCut}}</h5>
+      <img src="{{card.pic}}" class="img-thumbnail mb-2" alt="img">
+    </div>
+  </a>
+</div>

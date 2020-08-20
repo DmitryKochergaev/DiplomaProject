@@ -1,0 +1,111 @@
+<div *ngIf="cards$ | async as cards; else loading">
+
+  <div class="carousel slide carousel-fade " data-ride="carousel" id="slides">
+    <ul class="carousel-indicators">
+      <li data-target="#slides" data-slide-to="0" class="active"></li>
+      <li data-target="#slides" data-slide-to="1"></li>
+      <li data-target="#slides" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner ">
+      <div class="carousel-item active">
+        <div class="view " style="background-image: url(https://c.pxhere.com/images/eb/0b/6c5f4bb5f46423d124737477c467-1594712.jpg!d);
+                background-repeat: no-repeat; background-size: cover;">
+          <div class="carousel-caption ">
+            <div class="container h-100 mb-5">
+              <div class="d-flex justify-content-center h-100">
+                <div class="search">
+                  <input [(ngModel)]="searchStr" class="search_input" type="text" (click)="btnToggle('')"
+                         placeholder="Поиск">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <div class="view" style="background-image: url(https://c.pxhere.com/images/eb/0b/6c5f4bb5f46423d124737477c467-1594712.jpg!d);
+                    background-repeat: no-repeat; background-size: cover;">
+          <div class="carousel-caption">
+            <div class="container h-100 mb-5">
+              <div class="d-flex justify-content-center h-100">
+                <div class="search">
+                  <input [(ngModel)]="searchStr" class="search_input" type="text" name="" (click)="btnToggle('')"
+                         placeholder="Поиск">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <div class="view" style="background-image: url(https://c.pxhere.com/images/eb/0b/6c5f4bb5f46423d124737477c467-1594712.jpg!d);
+                    background-repeat: no-repeat; background-size: cover;">
+          <div class="carousel-caption ">
+            <div class="container h-100 mb-5">
+              <div class="d-flex justify-content-center h-100">
+                <div class="search">
+                  <input [(ngModel)]="searchStr" class="search_input" type="text" name="" (click)="btnToggle('')"
+                         placeholder="Поиск">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <a href="#slides" class="carousel-control-prev" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Предыдущий</span>
+    </a>
+    <a href="#slides" class="carousel-control-next" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">следующий</span>
+    </a>
+  </div>
+
+  <!-----------------------------------------------------------<div>carosuel</div>---------------------------------------------------------->
+
+
+  <div class="container-fluid d-flex CENTER">
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr==''}" (click)="btnToggle('')">Все
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr=='kostumi'}"
+              (click)="btnToggle('kostumi')">Костюмы
+      </button>
+      <button type="button" class="btn btn-secondary " [ngClass]="{active:cutStr=='cybeniri'}"
+              (click)="btnToggle('cybeniri')">Сувениры
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr=='byketi'}"
+              (click)="btnToggle('byketi')">Букеты
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr=='otkritki'}"
+              (click)="btnToggle('otkritki')">Открытки
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr=='razviva'}"
+              (click)="btnToggle('razviva')">Развивающие игрушки
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr=='wood'}"
+              (click)="btnToggle('wood')">Изделия из дерева
+      </button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{active:cutStr=='toys'}"
+              (click)="btnToggle('toys')">Вязаные игрушки
+      </button>
+
+    </div>
+  </div>
+
+  <div class=" card-columns mr-2 mt-4 ml-2 " style=" display: inline-block; ">
+    <app-card class=" card text-center  " *ngFor="let card of cards | searchCards:searchStr | cut:cutStr "
+              [card]="card">
+    </app-card>
+  </div>
+</div>
+
+
+<ng-template #loading>
+  <h2 class=" text-center mt-3"> Загрузка</h2>
+</ng-template>
+
+

@@ -1,0 +1,65 @@
+<!--<button class="material-icons mt-2 ml-2" (click)="back()">arrow_back</button>-->
+<!--<i class="material-icons" (click)="back()" id="back" style="cursor: pointer">arrow_back</i>-->
+
+<svg class="bi bi-arrow-left-square-fill" (click)="back()" width="3em" id="back" height="2em" viewBox="0 0 16 16"
+     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+</svg>
+
+
+<div *ngIf="card$ | async as card; else loading" class="mr-3 ml-3 mt-3">
+  <div class="container-fluid card table-bordered justify-content-start float-left " style="width: 50vw">
+
+    <div class="row align-self-center " >
+
+      <div class="col-12  ">
+        <img class="img-fluid mt-2 mb-2" src="{{card.pic}}" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="float-right" id="card-right" style="width: 40vw;">
+    <div class="card ">
+      <div class="card-header">
+        <h1 style="font-size: x-large; font-weight: normal; text-align: center" class=" ">{{card.title}}</h1>
+      </div>
+      <div class="card-footer">
+        <h6 class="float-right  "> {{card.price}} руб. </h6>
+      </div>
+    </div>
+  </div>
+
+<!--
+  <div class="col-12 col-sm-4 d-flex ">
+    <div class="row  ">
+      <div class="col-12" style="width: 150px">
+        <h1 style="font-size: x-large; font-weight: normal; text-align: center" class="mt-4 ">{{card.title}}</h1>
+      </div>
+    </div>
+    <div class="container align-self-end  ">
+      <h6 class="float-right  "> {{card.price}} руб. </h6>
+    </div>
+  </div>
+-->
+
+
+  <div class="container-fluid cardBtnCenter">
+    <div class="btn-group-toggle mt-3 d-flex">
+      <button type="button" class="btn btn-secondary active " id="textOp">Описание</button>
+    </div>
+  </div>
+  <div class="container-fluid mt-3 card table-bordered botM">
+    <div class="row">
+      <div class="col">
+        <quill-view-html [content]="card.text" class=""></quill-view-html>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #loading>
+  <h2 class=" text-center"> Загрузка</h2>
+</ng-template>
+

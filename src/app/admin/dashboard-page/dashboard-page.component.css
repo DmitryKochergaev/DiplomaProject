@@ -1,0 +1,9 @@
+.cardBtnCenter {
+  place-content: center;
+  display: flex;
+}
+
+.btn {
+  text-transform: none;
+  font-size: medium;
+}

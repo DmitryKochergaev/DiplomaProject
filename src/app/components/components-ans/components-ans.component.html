@@ -1,0 +1,40 @@
+<div class="card mb-3 mt-2 " id="card_main">
+  <div class="card-body">
+    <div class="card-title">
+      <div class="row ">
+        <i class="material-icons ">person</i>
+        <h6 class="card-title col" style="font-weight: bolder">{{comment.name}}</h6>
+        <small class="mr-3" id="date">{{comment.date | date:'dd.MM.yyyy'}}</small>
+      </div>
+      <small class="card-title" style="padding-right: 20px">ответ к комменатрию {{oldcomment.name}} </small>
+    </div>
+    <hr>
+    <p class="card-text " id="comment-text-ans">{{comment.text}}</p>
+    <button *ngIf="admin" (click)="remove(comment.id,oldcomment.id)" class="card-footer btn btn-sm btn-outline-danger float-right" >Удалить</button>
+  </div>
+</div>
+
+<div *ngIf="response==true" class=" " id="div-main-answer">
+  <div class="" id="div-main-2-answer">
+    <i class="material-icons float-right mt-1" style="cursor: pointer" (click)="response=false">close</i>
+
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Ваше имя</label>
+        <input formControlName="name" class="form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div class="form-group">
+        <label for="textAreaAns">Ваш ответ</label>
+        <textarea formControlName="text" class="form-control" id="textAreaAns" rows="5"
+                  placeholder="Ответ для {{comment.name}}"></textarea>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-outline-success align-self-end" type="submit" [disabled]="form.invalid">Отправить
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

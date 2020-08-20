@@ -1,0 +1,71 @@
+<div *ngIf=" cards.length; else loading">
+
+  <div class="container-fluid cardBtnCenter mb-3">
+    <div class="btn-group-toggle mt-3 d-flex">
+      <button type="button" class="btn btn-secondary active "
+              [ngClass]="{active: changeView == '1'}" (click)="change('1')">Карточки
+      </button>
+      <button type="button" class="btn btn-secondary"
+              [ngClass]="{active: changeView == '2'}" (click)="change('2')">Новости
+      </button>
+      <button type="button" class="btn btn-secondary"
+              [ngClass]="{active: changeView == '3'}" (click)="change('3')">Комменатрии
+      </button>
+    </div>
+  </div>
+
+  <div class=" form-control container-fluid mb-3">
+    <input type="text" class=" input-group" placeholder="Поиск" [(ngModel)]="searchStr">
+  </div>
+
+  <table class=" table">
+    <thead class=" ">
+    <tr>
+      <th>#</th>
+      <th>Название</th>
+      <th>Дата</th>
+      <th>Дейстиве</th>
+    </tr>
+    </thead>
+
+    <tbody *ngIf="changeView == '1' ">
+    <tr *ngFor="let card of cards | searchCards:searchStr ; let idx= index">
+      <td>{{ idx + 1 }}</td>
+      <td>{{ card.title }}</td>
+      <td>{{ card.date | date:'medium':null:'ru'}}</td>
+      <td>
+        <button class="  btn btn-primary" [routerLink]="['/admin', 'card', card.id, 'edit']">Открыть</button>
+        <a class=" btn btn-outline-danger" (click)="remove(card.id)">Удалить</a>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="changeView == '2' ">
+    <tr *ngFor="let news of news  ; let idx= index">
+      <td>{{ idx + 1 }}</td>
+      <td>{{ news.title }}</td>
+      <td>{{ news.date | date:'medium':null:'ru'}}</td>
+      <td>
+        <button class="  btn btn-primary" [routerLink]="['/admin', 'news', news.id, 'edit']">Открыть</button>
+        <a class=" btn btn-outline-danger" (click)="removeNews(news.id)">Удалить</a>
+      </td>
+    </tr>
+    </tbody>
+
+
+
+  </table>
+
+  <div *ngIf="changeView == '3'">
+    <div  class="row justify-content-center " id="comment-row">
+      <div class="col-md-7 col-12" id="comment-col">
+        <app-comment *ngFor="let comment of comments" [comment]="comment" [admin]="true" [adminAns]="true"></app-comment>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <h2 class="text-center">Загрузка</h2>
+</ng-template>

@@ -1,0 +1,24 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card{
+
+}
+#arrow {
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px outset rgba(53, 53, 53, 0.83);
+  background-color: white;
+}
+
+#quill-text {
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+
+#ph {
+
+}

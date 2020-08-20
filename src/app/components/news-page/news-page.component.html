@@ -1,0 +1,15 @@
+<div id="body">
+  <div *ngIf="news$ | async as news; else loading" class="container-fluid  ">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-5 col-md-9">
+
+        <app-news *ngFor="let news of news" [news]="news"></app-news>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #loading>
+    <h2 class="text-center"> Загрузка</h2>
+  </ng-template>
+</div>

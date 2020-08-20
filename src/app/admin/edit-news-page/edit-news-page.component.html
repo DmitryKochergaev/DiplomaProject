@@ -1,0 +1,24 @@
+<div *ngIf="form; else loading">
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class=" form-control mt-4" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+      <label for="title" style="font-size:xx-large">Название</label>
+      <input type="text" id="title" class="input-group border mt-2" formControlName="title">
+      <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+        <small *ngIf="form.get('title').errors.required">Обязательное поле</small>
+      </div>
+    </div>
+
+    <div class=" form-control mt-4">
+      <label  for="text" style="font-size:xx-large">Описание</label>
+      <quill-editor id="text" formControlName="text"></quill-editor>
+    </div>
+
+    <button class=" btn btn-success mt-2" type="submit" [disabled]="form.invalid || submitted">Сохранить</button>
+  </form>
+</div>
+
+<ng-template #loading>
+  <h2 class=" text-center">Загрузка</h2>
+</ng-template>

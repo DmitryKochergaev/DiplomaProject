@@ -1,0 +1,71 @@
+
+/*.message {*/
+/*  font-family: open sans, sans-serif;*/
+/*  font-weight: 400;*/
+/*  font-size: 15px;*/
+/*  line-height: 25px;*/
+/*}*/
+
+#input {
+  border: 1px solid;
+  border-radius: 1px;
+  font-family: open sans, sans-serif!important;
+
+}
+
+
+#textArea {
+
+  background: #fff !important;
+
+  font-family: open sans, sans-serif!important;
+
+
+  overflow: auto;
+  resize: none;
+  overflow-wrap: break-word;
+  outline-color: cyan;
+
+
+}
+
+#container-main {
+
+  /*background-color: #ccc;*/
+
+}
+
+#col-main {
+  background-color: white;
+  border: 4px solid #006969;
+  border-radius: 10px;
+
+
+}
+
+#row-main {
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+}
+
+#comment-col {
+
+}
+
+#comment-row {
+  padding-top: 10px;
+}
+
+#border {
+  border: 1px solid;
+}
+
+
+#exampleFormControlInput1 {
+  border: 1px outset darkcyan;
+}
+#textArea {
+  border: 1px outset darkcyan;
+
+}

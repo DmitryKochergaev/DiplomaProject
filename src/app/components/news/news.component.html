@@ -1,0 +1,15 @@
+<div class="card mt-4 mb-1">
+  <div class="card-header">
+    <small class="float-right">{{ news.date | date:'dd.MM.yyyy' }}</small>
+    <h2 class="text-center">{{ news.title }}</h2>
+
+  </div>
+  <div class="card-body">
+    <div>
+      <quill-view-html [content]="news.text | cutNewsPipe" style="font-size: xx-small!important;"></quill-view-html>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button [routerLink]="['/news', news.id]" class="btn  mt-1 float-right ">Открыть</button>
+  </div>
+</div>

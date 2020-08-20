@@ -1,0 +1,47 @@
+<div id="body" style="background-image: url(https://c.pxhere.com/images/eb/0b/6c5f4bb5f46423d124737477c467-1594712.jpg!d);
+                background-repeat: no-repeat; background-size: cover;">
+  <div class="container-fluid " id="container-main">
+
+    <div class="row justify-content-center " id="row-main">
+      <div class="col-md-7 col-12" id="col-main">
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <h3 style="color: #006969" class="mt-3">Оставить комментарий </h3>
+          <div class="form-group">
+            <label for="textArea">Ваш комментарий</label>
+            <textarea formControlName="text" class="form-control mt-2" (click)="clickedTextArea=true" id="textArea"
+                      rows="5"></textarea>
+          </div>
+
+          <div class="row" *ngIf="clickedTextArea">
+            <div class="col">
+              <input type="text" class="form-control" formControlName="name" placeholder="Ваше имя">
+            </div>
+            <div class="col-3">
+              <button class="btn btn-success  form-control" type="submit"
+                      [disabled]="form.invalid" id="border">Отправить
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+
+
+    <div *ngIf="com;  else loading" class="row justify-content-center " id="comment-row">
+      <div class="col-md-7 col-12" id="comment-col">
+        <app-comment *ngFor="let comment of com" [comment]="comment" [admin]="false" [adminAns]="false"></app-comment>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<ng-template #loading>
+  <h2 style="text-align: center">Загрузка</h2>
+</ng-template>

@@ -1,0 +1,73 @@
+.wid {
+    width: 600px;
+    align-self: center;
+}
+
+
+
+.card:hover {
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+}
+
+.view {
+    display: block;
+    height: 300px;
+    max-width: 100%;
+    /* дополнительно их выровняем по центру */
+    margin-left: auto;
+    margin-right: auto;
+    /* и добавим внешний нижний отступ */
+    margin-bottom: 15px;
+}
+
+
+
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #e74c3c !important
+}
+
+.search {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 40px;
+}
+
+.search_input {
+    color: black;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    line-height: 40px;
+    transition: width 0.4s linear
+}
+
+.search .search_input {
+    padding: 0 10px;
+    width: 400px;
+    transition: width 0.4s linear
+}
+
+a:link {
+    text-decoration: none
+}
+
+.CENTER {
+    place-content: center;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+

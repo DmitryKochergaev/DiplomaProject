@@ -1,0 +1,52 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <div>
+    <select class="custom-select custom-select-lg mb-3" formControlName="type"
+            [ngClass]="{invalid: form.get('type').value == '1'}">
+      <option value="1" disabled>Выбрать тип</option>
+      <option value="kostumi">Костюмы</option>
+      <option value="cybeniri">Сувениры</option>
+      <option value="byketi">Букеты</option>
+      <option value="otkritki">Открытки</option>
+      <option value="razviva">Развивающие игрушки</option>
+      <option value="wood">Изделия из дерева</option>
+      <option value="toys">Вязаные игрушки</option>
+    </select>
+  </div>
+
+  <div class=" form-control " [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+
+    <label for="title" style="font-size:xx-large">Название</label>
+    <input type="text" id="title" class="input-group border" formControlName="title">
+    <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+      <small *ngIf="form.get('title').errors.required">Обязательное поле</small>
+    </div>
+  </div>
+
+  <div class=" form-control mt-4 mb-4">
+    <label for="pic" style="font-size:xx-large">Фотография</label>
+    <input type="text" name="" id="pic" formControlName="pic" class="input-group border ">
+
+  </div>
+
+  <div class=" form-control mb-4">
+    <label for="price" style="font-size:xx-large">Цена</label>
+    <input id="price" formControlName="price" class="input-group border">
+  </div>
+
+  <div class=" form-control mb-3">
+    <label for="text" style="font-size:xx-large">Описание</label>
+    <quill-editor id="text" formControlName="text"></quill-editor>
+  </div>
+
+
+  <div class=" container-fluid d-flex justify-content-end">
+    <button class="btn btn-raised mt-4 " type="submit" [disabled]="form.invalid || form.get('type').value == '1'">
+      Добавить
+    </button>
+  </div>
+
+
+</form>
+
+

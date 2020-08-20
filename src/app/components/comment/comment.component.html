@@ -1,0 +1,58 @@
+<div id="border">
+
+  <div class="card mb-3 mt-1">
+    <div class="card-body">
+      <div class="row ">
+
+        <i class="material-icons ">person</i>
+        <h6 class="card-title col" style="font-weight: bolder">{{comment.name}}</h6>
+
+        <small class="mr-3"   id="date">{{comment.date | date:'dd.MM.yyyy'}}</small>
+
+      </div>
+
+
+      <p class="card-text" id="comment-text-main">{{comment.text}}</p>
+      <hr>
+      <button class="card-footer btn btn-sm " (click)="response= true">Ответить</button>
+      <button *ngIf="admin" class="card-footer btn btn-sm btn-outline-danger float-right" (click)="remove(comment.id)">Удалить</button>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="response==true" class=" " id="div-main-answer">
+    <div class="" id="div-main-2-answer">
+      <i class="material-icons float-right mt-1" style="cursor: pointer" (click)="response=false">close</i>
+
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+          <label for="textAreaAns">Ваш ответ</label>
+          <textarea formControlName="text" class="form-control" id="textAreaAns" rows="5"
+                    placeholder="Ответ для {{comment.name}}"></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" formControlName="name" placeholder="Ваше имя">
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-success  form-control" type="submit"
+                    [disabled]="form.invalid" id="">Ответить
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <div *ngIf="com " id="comAns">
+    <div>
+      <app-components-ans *ngFor="let com of com" [comment]="com" [oldcomment]="comment" [admin]="adminAns" ></app-components-ans>
+    </div>
+  </div>
+</div>

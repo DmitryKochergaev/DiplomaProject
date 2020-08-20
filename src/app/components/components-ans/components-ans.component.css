@@ -1,0 +1,48 @@
+#card_main {
+  margin-left: 40px;
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.btn-reply {
+  font-size: small;
+  text-transform: none;
+}
+
+/*#comAns {*/
+/*  background-color: #ccc;*/
+/*}*/
+
+#border {
+  border: 3px solid #006969;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  border-radius: 20px;
+}
+
+#div-main-2-answer {
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  background-color: white;
+}
+
+#textAreaAns {
+  overflow: auto;
+  resize: none;
+  overflow-wrap: break-word;
+}
+
+
+#comment-text-ans {
+
+  padding-top: 5px;
+}
